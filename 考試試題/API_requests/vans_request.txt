@@ -1,0 +1,19 @@
+curl 'https://125.227.239.179/dp-api/ui/dashboard/v2/cache?d_type=vans' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6,ja;q=0.5' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Cookie: mongo-express=s%3AZEYG-njplzw2syb2FClpZTjHfbaNqGbH.%2F167MTJf43ROWP4gcuT6Oj7d5sXqWrD8q3OiV5Luo1M; connect.sid=s%3AcC2ggxH3XogeDplBwokxo_ZfLzdPNwQv.E4uwQDdvnKJqXFks2Y972ZzpTceVuxSzByHI1F00U18' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://125.227.239.179/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' \
+  -H 'X-DP-Application-Id: dp-core-unset' \
+  -H 'X-DP-Token: 5b7b36f0-e48f-11eb-8fd6-ebd6877b135c' \
+  -H 'sec-ch-ua: "Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed \
+  --insecure
