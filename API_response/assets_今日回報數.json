@@ -1,0 +1,32 @@
+{
+    "msg": "ok",
+    "results": {
+        "totalRow": 4,
+        "agents": [
+            {
+                "uuid": "083a9cf9d0f147d4a78f8109a20099f2",
+                "createdAt": "2022-02-11T07:30:29.644Z",
+                "updatedAt": "2022-12-13T04:25:40.107Z",
+                "objectId": "7d1bb900-8b0c-11ec-9d8d-bb6e8c6866de"
+            },
+            {
+                "uuid": "40845fbb62524a66a740657e1ec7124b",
+                "createdAt": "2022-09-28T02:15:52.959Z",
+                "updatedAt": "2022-12-13T04:24:12.548Z",
+                "objectId": "7a52c620-3ed3-11ed-83ce-c3aa016dcbd5"
+            },
+            {
+                "uuid": "b3e9aec84080497bb45abe11363bee69",
+                "createdAt": "2022-12-01T13:28:48.569Z",
+                "updatedAt": "2022-12-13T04:24:11.344Z",
+                "objectId": "167fefc0-717c-11ed-aba1-83aecdcf2276"
+            },
+            {
+                "uuid": "30376f0650ab4ddd982ad6e9c64891a0",
+                "createdAt": "2022-12-01T13:29:42.861Z",
+                "updatedAt": "2022-12-13T04:24:19.142Z",
+                "objectId": "36dc3d00-717c-11ed-aba1-83aecdcf2276"
+            }
+        ]
+    }
+}
