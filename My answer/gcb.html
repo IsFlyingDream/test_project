@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="./css/simple-line-icons.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/Chart.min.css" type="text/css">
+
+  <title>DragonSoft GCB</title>
+
+</head>
+
+<body class="sidebar-lg-show header-fixed sidebar-fixed">
+  <div class="p-5" style="background-color: #e4e5e6;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col">
+            <div class="card text-primary">
+              <div class="card-body" style="height: 86px;">
+                <div class="row">
+                  <div class="text-right col"><i class="icon-layers" style="font-size: 2.75rem;"></i></div>
+                  <div class="col"><a class="h4 m-0" id="totalCount">0</a><br><span class="text-dark">資產總數</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-success">
+              <div class="card-body" style="height: 86px;">
+                <div class="row">
+                  <div class="text-right col"><i class="icon-check" style="font-size: 2.75rem;"></i></div>
+                  <div class="col"><a class="text-success h4 m-0" id="passedCount">0</a><br><span
+                      class="text-dark">合規數</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-danger">
+              <div class="card-body" style="height: 86px;">
+                <div class="row">
+                  <div class="text-right col"><i class="icon-close" style="font-size: 2.75rem;"></i></div>
+                  <div class="col"><a class="text-danger h4 m-0" id="failedCount">0</a><br><span
+                      class="text-dark">未合規數</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-muted">
+              <div class="card-body" style="height: 86px;">
+                <div class="row">
+                  <div class="text-right col"><i class="icon-question" style="font-size: 2.75rem;"></i>
+                  </div>
+                  <div class="col"><a class="text-muted h4 m-0" id="otherCount">0</a><br><span
+                      class="text-dark">未稽核數</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-3">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-actions"><span class="card-header-action btn-minmize"
+                    aria-controls="card-recent-audit-stat" aria-expanded="true" role="button">
+                  </span></div><i class="fa fa-list mr-1"></i><span>近期稽核情形 (稽核資產數)</span>
+              </div>
+              <div id="card-recent-audit-stat" class="collapse show">
+                <div class="card-body">
+                  <div class="row" style="min-height: 280px;">
+                    <div class="col-md-8">
+                      <div class="mb-4">
+                        <canvas id="dayChart" width="179px" height="179px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="day3">0</div><span>最近 3 日</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="day7">0</div><span>最近 7 日</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="day15">0</div><span>最近 15 日</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="day30">0</div><span>最近 30 日</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-actions"><span class="card-header-action btn-minmize"
+                    aria-controls="card-pass-ratio" aria-expanded="true" role="button">
+                  </span></div><i class="fa fa-list mr-1"></i><span>資產合規率</span>
+              </div>
+              <div id="card-pass-ratio" class="collapse show">
+                <div class="card-body">
+                  <div class="row" style="min-height: 280px;">
+                    <div class="col-md-8">
+                      <div class="mb-4">
+                        <canvas id="assetChart" width="179" height="179"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="passedRatio">0.00%</div><span>合規</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="failedRatio">0.00%</div><span>未合規</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="h4 mb-0" id="otherRatio">0.00%</div><span>未稽核</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- softInfo -->
+          <div class="col-lg-12 mt-3">
+            <div class="card">
+              <div class="card-header" id="softInfoTitle">
+                <div class="card-header-actions">
+                  <span class="card-header-action btn-minmize" aria-controls="card-group-dist" aria-expanded="true"
+                    role="button"></span>
+                </div>
+              </div>
+              <div id="card-group-dist" class="collapse show">
+                <div class="card-body" id="softInfo">
+                  <div class="row" style="min-height: 160px;" id="softInfoRow">
+                    <div class="col-lg-3">
+                      <div class="mb-4">
+                        <canvas id="softChart" width="137" height="137"></canvas>
+                      </div>
+                    </div>
+                    <div class="col softInfoList">
+                      <h4 class="softInfoName"></h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 mt-3">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-actions"><span class="card-header-action btn-minmize"
+                    aria-controls="card-aduit-ratio" aria-expanded="true" role="button"></span></div><i
+                  class="fa fa-list mr-1"></i><span>最近 30 天回報狀況</span>
+              </div>
+              <div id="card-aduit-ratio" class="collapse show">
+                <div class="card-body">
+                  <div class="pl-4 pr-4 col" style="min-height: 250px;">
+                    <div class="my-3" style="min-width: 100%; height: 300px;">
+                      <canvas id="dailyReportChart" width="591" height="300"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-actions"><span class="card-header-action btn-minmize"
+                    aria-controls="card-audit-stat" aria-expanded="true" role="button"></span></div><i
+                  class="fa fa-list mr-1"></i><span>稽核項目分類統計</span>
+              </div>
+              <div id="card-audit-stat" class="collapse show">
+                <div class="card-body">
+                  <div class="col" id="auditPolicy">
+                    <div class="row text-right" id="auditPolicyTitle">
+                      <div class="text-left col-md-4">分類 / 圖示</div>
+                      <div class="col-md-2">合規率</div>
+                      <div class="col-md-2">未合規率</div>
+                      <div class="col-md-2">未設定率</div>
+                      <div class="col-md-2">排除率</div>
+                    </div>
+                    <div id="auditPolicyRow" class="row my-3 text-right">
+                      <div class="text-left col-md-4"><strong class="policyName"></strong></div>
+                      <div class="col-md-2"></div>
+                      <div class="col-md-2"></div>
+                      <div class="col-md-2"></div>
+                      <div class="col-md-2"></div>
+                      <div class="col-md-4">
+                        <div class="progress policyProgress">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header-actions"><span>信任網站列表</span>
+                  <button type="button" class="btn mr-3 btn-sm mb-1 mt-1 btn-secondary pull-right"
+                    id="expendTrustsiteBtn" onclick="expend('trustsite')">展開</button>
+                </div>
+              </div>
+              <div id="trustsite" class="collapse show" style="max-height: 250px; overflow-y: auto;">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col" id="trustsiteInfo">
+                      <div class="row">
+                        <div class="col-md-10">
+                          <h5>網址</h5>
+                        </div>
+                        <div class="col-md-2">
+                          <h5>使用數量</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/jquery-3.6.0.slim.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/Chart.min.js"></script>
+    <!-- <script src="./js/data"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script> -->
+
+    <!-- <script src="./js/my.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+      /*/下方程式碼加的內容
+            axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
+              .then(res => {
+                const agentPassStat = res.data.results.agentPassStat;
+                const agentSoftInfo = res.data.results.agentSoftInfo;
+                const acagentAuditDateInfo = res.data.results.agentAuditDateInfo;
+                const agentAuditInfo = res.data.results.agentAuditInfo;
+                const agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;
+                const agentScanInfo = res.data.results.agentScanInfo;
+      
+                //console.log(agentPassStat.total);
+      
+                //..放下方程式馬....//
+              })
+      */
+    </script>
+
+    <script>
+      axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
+        .then(res => {
+          const agentPassStat = res.data.results.agentPassStat;
+          const agentSoftInfo = res.data.results.agentSoftInfo;
+          const acagentAuditDateInfo = res.data.results.agentAuditDateInfo;
+          const agentAuditInfo = res.data.results.agentAuditInfo;
+          const agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;
+          const agentScanInfo = res.data.results.agentScanInfo;
+
+
+          // agentPassStat agentSoftInfo agentScanInfo agentAuditInfo agentAuditDateInfo agentTrustSiteInfo
+          const auditVariant = ['bg-success', 'bg-danger', 'bg-warning', 'bg-secondary'];
+          // statistic
+          $('#totalCount').html(agentPassStat.total);
+          $('#passedCount').html(agentPassStat.passed);
+          $('#failedCount').html(agentPassStat.failed);
+          $('#otherCount').html(agentPassStat.other);
+
+          // audit 30 days
+          $('#day3').html(agentScanInfo['3'])
+          $('#day7').html(agentScanInfo['7'])
+          $('#day15').html(agentScanInfo['15'])
+          $('#day30').html(agentScanInfo['30'])
+
+          // passRatio
+          $('#passedRatio').html((agentPassStat.passed / agentPassStat.total * 100).toFixed(2) + '%');
+          $('#failedRatio').html((agentPassStat.failed / agentPassStat.total * 100).toFixed(2) + '%');
+          $('#otherRatio').html((agentPassStat.other / agentPassStat.total * 100).toFixed(2) + '%');
+
+          // auditInfo
+          const auditPolicyTitle = $('#auditPolicyTitle')
+          const auditPolicyRow = $('#auditPolicyRow')
+          $('#auditPolicy').html('')
+          $('#auditPolicy').append(auditPolicyTitle)
+          Object.keys(agentAuditInfo).forEach((e) => {
+            const data = agentAuditInfo[e];
+            const total = data.reduce((a, b) => a + b)
+            const row = auditPolicyRow.clone()
+            row.find('.policyName').html(e)
+            const policyProgress = row.find('.policyProgress')
+            data.forEach((e, i) => {
+              const per = (e / total * 100).toFixed(1)
+              policyProgress.append(`<div role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${e}"\
+                                  class="progress-bar ${auditVariant[i]}" title="${e} 項" style="width: ${per}%;"> ${per} %</div>`)
+              row.append(`<div class="col-md-2"> ${per} %</div>`)
+            })
+            $('#auditPolicy').append(row)
+          })
+
+          // trustsite
+          const trustsite = $('#trustsiteInfo');
+          agentTrustSiteInfo.forEach((e) => {
+            trustsite.append(`<div class="row">\
+                            <div class="col-md-10"><span>${e.siteName}</span></div>\
+                            <div class="col-md-2"><span>${e.userCount}</span></div>\
+                          </div>`)
+          })
+
+          // softInfo
+          const softInfo = $('#softInfo')
+          const softInfoRow = $('#softInfoRow')
+          const softInfoTitle = $('#softInfoTitle')
+          agentSoftInfo.forEach((e, i) => {
+            softInfoTitle.append(`<button type="button" class="btn mr-3 btn-sm mb-1 mt-1 btn-secondary" onClick="showSoftInfo(${i})">${e.name}</button>`)
+          })
+          showSoftInfo(0);
+
+
+          let showIndex = 0
+          function showSoftInfo(index) {
+            const row = softInfoRow.clone()
+            const list = row.find('.softInfoList')
+            agentSoftInfo[index].list.forEach((v) => {
+              const name = v.version === 'other' ? '未安裝' :
+                ['Internet Explorer', 'Google Chrome', 'Firefox', 'Edge', 'Java', 'Flash Player', 'Adobe Reader'].includes(agentSoftInfo[index].name) ?
+                  `${agentSoftInfo[index].name} ${v.version}` : v.version;
+              list.append(`<div><span>${name} - ${v.count} 台</span></div>`);
+            })
+            softInfo.html(row)
+            createChart('softChart', 'doughnut', agentSoftInfo[index].list.map(e => e.version), [{ data: agentSoftInfo[index].list.map(e => e.count) }])
+          }
+
+          createChart('dayChart', 'bar', Object.keys(agentScanInfo), [{ name: '稽核資產數', data: Object.values(agentScanInfo) }], ['#20a8d8', '#4ab5df', '#68c2e7', '#81cfef', '#99ddf7', '#b0eaff'])
+          createChart('assetChart', 'doughnut', Object.keys(agentPassStat), [{ data: Object.values(agentPassStat) }], ['#4dbd74', '#f86c6b', '#73818f'])
+          createChart('dailyReportChart', 'line', Object.keys(agentAuditDateInfo),
+            [
+              { name: '回報數', data: Object.values(agentAuditDateInfo).map(e => e.total) },
+              { name: '未通過', data: Object.values(agentAuditDateInfo).map(e => e.fail) },
+              { name: '通過', data: Object.values(agentAuditDateInfo).map(e => e.pass) },
+            ],
+            ['rgba(32, 168, 216, 0.2)', 'rgba(248, 108, 107, 0.2)', 'rgba(77, 189, 116, 0.2)'],
+            ['rgba(32, 168, 216, 0.8)', 'rgba(248, 108, 107, 0.8)', 'rgba(77, 189, 116, 0.8)'])
+          // day chart
+          function createChart(elementId, type, labels, data, backgroundColor = [
+            '#4dbd74', '#6ec688', '#8acf9d', '#a5d8b1', '#bfe0c6', '#d8e9db', '#f1f1f1',
+            '#e9f0ea', '#e1f0e4', '#d9efde', '#d1eed7', '#c9eed1', '#c1edcb',], borderColor = []) {
+            const ctx = $(`#${elementId}`)[0].getContext('2d');
+            const chart = new Chart(ctx, {
+              type,
+              data: {
+                labels,
+                datasets: data.map((e, i) => ({
+                  label: e.name || '',
+                  data: e.data,
+                  backgroundColor: type === 'line' ? backgroundColor[i] : backgroundColor,
+                  borderColor: type === 'line' ? borderColor[i] : 'rgba(0, 0, 0, 0)',
+                  lineTension: 0,
+                  fill: i === 0,
+                }))
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: ['bar'].includes(type) ? { yAxes: [{ ticks: { min: 0 } }] } : null,
+                legend: {
+                  display: ['bar'].includes(type),
+                },
+              }
+            })
+          }
+
+          const expendStat = {
+            'trustsite': false
+          }
+          function expend(id) {
+            if (id === 'trustsite') {
+              console.log('123')
+              $(`#expendTrustsiteBtn`).html(expendStat.trustsite ? '展開' : '收合')
+              $(`#${id}`).css('max-height', expendStat.trustsite ? '250px' : '')
+              $(`#${id}`).css('overflow-y', expendStat.trustsite ? 'auto' : '')
+              expendStat.trustsite = !expendStat.trustsite
+            }
+          }
+
+        })
+    </script>
+</body>
+
+</html>

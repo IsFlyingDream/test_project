@@ -1,0 +1,90 @@
+<!DOCTPE html>
+	<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="hhttps://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+		<script>
+			//assets_30天未回報數.json
+			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			// 	.then(res => {
+			// 		console.log(res);
+			// 	})
+
+			// //assets_今日回報數.json
+			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			// 	.then(res => {
+			// 		console.log(res);
+			// 	})
+
+			// //assets_今日未回報數.json
+			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			// 	.then(res => {
+			// 		console.log(res);
+			// 	})
+
+			//gcb.json-------------------------------------------↓↓
+			/*
+						let agentPassStat;
+						let agentSoftInfo;
+						let agentAuditDateInfo;
+						let agentAuditInfo;
+						let agentTrustSiteInfo;
+						let agentScanInfo;
+			
+						axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
+							.then(res => {
+								agentPassStat = res.data.results.agentPassStat;
+								agentSoftInfo = res.data.results.agentSoftInfo;
+								acagentAuditDateInfo = res.data.results.agentAuditDateInfo;
+								agentAuditInfo = res.data.results.agentAuditInfo;
+								agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;
+								agentScanInfo = res.data.results.agentScanInfo;
+			
+								console.log(agentPassStat.total);
+							})
+			*/
+
+			//跳轉別頁
+			window.location.href = 'My answer_dashboard/Dashboard.html';
+
+			//gcb.json-------------------------------------------↑↑
+
+			//vans.json
+			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json')
+			// 	.then(res => {
+			// 		console.log(res);
+			// 	})
+
+
+
+			/*const fileNames = ['https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json'];
+			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
+			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
+			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
+			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json');
+
+			for (let i = 0; i < fileNames.length; i++) {
+				axios.get(`${fileNames[i]}`)
+					.then(response => {
+						console.log(response.data);
+					})
+					.catch(error => {
+						console.error(error);
+					});
+			}*/
+
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+	<script type="text/javascript">
+
+	</script>
+
+	</html>
