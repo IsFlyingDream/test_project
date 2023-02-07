@@ -1,13 +1,18 @@
-<!DOCTPE html>
-	<html>
+<!DOCTYPE html>
+<html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<script src="hhttps://unpkg.com/vue@3/dist/vue.global.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title></title>
 
-		<script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="./js/Chart.min.js"></script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> -->
+
+
+	<!-- <script>
 			//assets_30天未回報數.json
 			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
 			// 	.then(res => {
@@ -26,65 +31,58 @@
 			// 		console.log(res);
 			// 	})
 
-			//gcb.json-------------------------------------------↓↓
-			/*
-						let agentPassStat;
-						let agentSoftInfo;
-						let agentAuditDateInfo;
-						let agentAuditInfo;
-						let agentTrustSiteInfo;
-						let agentScanInfo;
 			
-						axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
-							.then(res => {
-								agentPassStat = res.data.results.agentPassStat;
-								agentSoftInfo = res.data.results.agentSoftInfo;
-								acagentAuditDateInfo = res.data.results.agentAuditDateInfo;
-								agentAuditInfo = res.data.results.agentAuditInfo;
-								agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;
-								agentScanInfo = res.data.results.agentScanInfo;
-			
-								console.log(agentPassStat.total);
-							})
-			*/
-
 			//跳轉別頁
 			//window.location.href = 'My answer/Dashboard.html';
 
-			//gcb.json-------------------------------------------↑↑
-
-			//vans.json
-			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json')
-			// 	.then(res => {
-			// 		console.log(res);
-			// 	})
+		</script> -->
 
 
+</head>
 
-			/*const fileNames = ['https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json'];
-			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
-			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
-			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json');
-			fileNames.push('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json');
+<body>
 
-			for (let i = 0; i < fileNames.length; i++) {
-				axios.get(`${fileNames[i]}`)
-					.then(response => {
-						console.log(response.data);
-					})
-					.catch(error => {
-						console.error(error);
-					});
-			}*/
+	<canvas id="R_line" width="400" height="400"></canvas>
 
-		</script>
-	</head>
-
-	<body>
-
-	</body>
 	<script type="text/javascript">
 
+		//右邊線條圖↓↓----------------------------------------------------
+		var ctx = document.getElementById('R_line');
+		var myChart = new Chart(ctx, {
+			type: 'line', //圖表類型
+			data: {//設定圖表資料
+				//標題
+				labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+				datasets: [{
+					label: 'My First Dataset',
+					data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+					fill: false,
+					borderColor: [
+						'rgb(238, 133, 116)',
+					],
+					tension: 0.1
+				},
+				{
+					label: 'My First Dataset',
+					data: [62, 62, 62, 62, 62, 62, 62],
+					fill: false,
+					borderColor: [
+						'rgb(75, 192, 192)',
+					],
+					tension: 0.1
+				},
+			]
+			},
+			options: {//圖表的一些其他設定，像是hover時外匡加粗
+				// 圖例
+				legend: {
+					display: false,
+				},
+			}
+		});
+		//右邊線條圖↑↑----------------------------------------------------
 	</script>
 
-	</html>
+</body>
+
+</html>

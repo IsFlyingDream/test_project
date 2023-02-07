@@ -1,0 +1,19 @@
+
+資料夾『API_response』為你們提供給我的資料，我放在網路作為可以外連的API使用。
+
+我的答案放在『My answer』資料夾內。
+
+『考試試題』則是貴方此次給我的內容。
+
+
+==========1.串聯API==========
+檔案『Dashboard_gcb.html』
+是直接拿『參考資料_Dashboard.zip 』來改。
+，裡面的資料是抓：
+『https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json 』網址的。
+
+
+==========2.頁面完成品==========
+檔案『assets.html』、
+
+2.其他頁面是我從0開始，根據『頁面完成品截圖』慢慢完成的。

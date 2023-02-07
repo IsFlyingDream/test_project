@@ -9,10 +9,14 @@
 	<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
 	<script src="./js/jquery-3.6.0.slim.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
-	<script src="./js/Chart.min.js"></script>
+	<script type="text/javascript" src="./js/Chart.min.js"></script>
+
 
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -27,7 +31,7 @@
 					</svg>
 				</div>
 				<div class="col-9">
-					<h5 class="text-info">2370</h5>
+					<h4 class="text-info" id="totalCount">0</h4>
 					<p>資產總數</p>
 				</div>
 			</div>
@@ -41,7 +45,7 @@
 					</svg>
 				</div>
 				<div class="col-9">
-					<h4 class="text-success">4</h4>
+					<h4 class="text-success" id="todayReturn">0</h4>
 					<p><small>今日回報數</small></p>
 				</div>
 			</div>
@@ -55,7 +59,7 @@
 					</svg>
 				</div>
 				<div class="col-9">
-					<h4 class="text-danger">2366</h4>
+					<h4 class="text-danger" id="todayUReturn">0</h4>
 					<small>今日未回報數</small>
 				</div>
 			</div>
@@ -69,7 +73,7 @@
 					</svg>
 				</div>
 				<div class="col-9">
-					<h4 class="text-secondary">2348</h4>
+					<h4 class="text-secondary" id="ManeydayUReturn">0</h4>
 					<p><small>30天未回報數</small></p>
 				</div>
 			</div>
@@ -98,7 +102,7 @@
 				</div>
 
 			</div>
-			<div class="col-1 m-1 border border-2 row align-items-center">
+			<div class="col m-1 border border-2 row align-items-center">
 				<p>本部<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
 						class="bi bi-question-circle-fill" viewBox="0 0 16 16">
 						<path
@@ -108,8 +112,8 @@
 				<button type="button" class="btn btn-secondary">選擇分站</button>
 			</div>
 		</div>
-		<div class="row  justify-content-center" >
-			<div class="col-6 " >
+		<div class="row  justify-content-center">
+			<div class="col ">
 				<div class="accordion" id="accordionExample">
 					<!-- First Accordion Item -->
 					<div class="card">
@@ -132,7 +136,7 @@
 									Reader</button>
 							</div>
 
-							<div class="nav nav-tabs tab-content row" style="border-bottom: 0;">
+							<div class="col nav nav-tabs tab-content row" style="border-bottom: 0;">
 								<div class="col-1">
 									<svg xmlns="http://www.w3.org/2000/svg" data-toggle="collapse"
 										data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
@@ -155,49 +159,134 @@
 
 											<div class="tab-content m-2">
 												<div class="tab-pane active" id="systemtag">
-													<p>
-														作業系統
-													</p>
+													<div class="row">
+														<div class="" style="width: 150px;">
+															<!-- 左邊圓餅圖 -->
+															<canvas id="L_pie_system" width="400" height="400"></canvas>
+														</div>
+														<div class="col">
+															<h3>
+																作業系統
+															</h3>
+															<div>
+																<em class="text-info"
+																	id="agentSoftInfo_system">作業系統內容，待接API...</em>
+															</div>
+														</div>
+													</div>
+
 												</div>
 												<div class="tab-pane" id="IE">
-													<p>
-														Internet Explorer
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_IE" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Internet Explorer
+														</h3>
+														<div>
+															<em>Internet Explorer內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Google">
-													<p>
-														Google Chrome
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Google" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Google Chrome
+														</h3>
+														<div>
+															<em>Google Chrome內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Firefox">
-													<p>
-														Firefox
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Firefox" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Firefox
+														</h3>
+														<div>
+															<em>Firefox內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Edge">
-													<p>
-														Edge
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Edge" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Edge
+														</h3>
+														<div>
+															<em>Edge內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Java">
-													<p>
-														Java
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Java" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Java
+														</h3>
+														<div>
+															<em>Java內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="AS">
-													<p>
-														防毒軟體
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_AS" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															防毒軟體
+														</h3>
+														<div>
+															<em>防毒軟體內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Flash">
-													<p>
-														Flash Player
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Flash" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Flash Player
+														</h3>
+														<div>
+															<em>Flash Player內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 												<div class="tab-pane" id="Adobe">
-													<p>
-														Adobe Reader
-													</p>
+													<div class="" style="width: 150px;">
+														<!-- 左邊圓餅圖 -->
+														<canvas id="L_pie_Adobe" width="400" height="400"></canvas>
+													</div>
+													<div class="col">
+														<h3>
+															Adobe Reader
+														</h3>
+														<div>
+															<em>Adobe Reader內容，待接API...</em>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -211,17 +300,16 @@
 				</div>
 
 			</div>
-			<div class="col-6 " >
+			<div class="col ">
 				<div class="card">
 					<div class="card-header " id="headingOne">
-							<div style="display: inline-block;">最近30天的回報狀況</div>
-								<svg xmlns="http://www.w3.org/2000/svg" data-toggle="collapse" style="float: right;"
-									data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"
-									width="16" height="16" fill="currentColor" class="bi bi-chevron-up"
-									viewBox="0 0 16 16">
-									<path fill-rule="evenodd"
-										d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
-								</svg>
+						<div style="display: inline-block;">最近30天的回報狀況</div>
+						<svg xmlns="http://www.w3.org/2000/svg" data-toggle="collapse" style="float: right;"
+							data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" width="16"
+							height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+							<path fill-rule="evenodd"
+								d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+						</svg>
 					</div>
 
 					<div id="collapseTwo" class="collapse show" aria-labelledby="headingOne"
@@ -229,66 +317,205 @@
 						<div class="tabbable" id="tabs-516582">
 							<!-- 摺疊選項 1 -->
 							<div class="card card-body accordion" id="accordionExampleTwo">
-
+								<canvas id="R_line" width="400" height="400"></canvas>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
-
 	</div>
-
 
 
 
 	<!-- API -->
 	<script>
-		//assets_30天未回報數.json
-		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+		//gcb.json-↓↓--(內有左下角作業系統訊息)----------------------------------
+		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
 			.then(res => {
-				console.log(res);
+				const agentPassStat = res.data.results.agentPassStat;
+				const agentSoftInfo = res.data.results.agentSoftInfo;
+
+
+				$('#totalCount').html(agentPassStat.total);
+
+
+				//左下角作業系統訊息start-↓↓--------------------------------			
+
+				//1.作業系統↓↓------------------------------------------------
+				for (let i = 0; i < agentSoftInfo.length; i++) {
+
+					if (agentSoftInfo[i].name == "Operation System") {
+						let otherNum = 0;//other數量
+						let WindowsNum = 0;//Windows數量
+						let LinuxNum = 0;//Linux數量
+						let FirefoxNum = 0;//Firefox數量
+						for (let j = 0; j < agentSoftInfo[i].list.length; j++) {//顯示文字
+
+							let list = agentSoftInfo[i].list[j];
+
+							if (j == 0) {
+								$('#agentSoftInfo_system').html(list.version + " - " + list.count + " 台 <br>");
+							} else {
+								$('#agentSoftInfo_system').append(list.version + " - " + list.count + " 台 <br>");
+							}
+							if (list.version.includes("Windows") == true) {
+								WindowsNum++;
+							} else if (list.version.includes("Linux") == true) {
+								LinuxNum++;
+							} else if (list.version.includes("Firefox") == true) {
+								FirefoxNum++;
+							} else {
+								otherNum++;
+							}
+						}
+
+						//顯示圓餅圖圖形資料↓↓---------------------------------
+						/*色票
+							'rgba(214, 243, 231, 1)',
+							'rgba(173, 251, 218, 1)',
+							'rgba(173, 236, 204, 1)',
+							'rgba(160, 220, 196, 1)',
+							'rgba(118, 208, 164, 1)'
+						*/
+						var ctx = document.getElementById('L_pie_system');
+						var myChart = new Chart(ctx, {
+							type: 'doughnut', //圖表類型
+							data: {//設定圖表資料
+								//標題
+								labels: ['others', 'Windows', 'Linux', 'Firefox'],
+								datasets: [{
+									label: '# test', //標籤
+									data: [otherNum, WindowsNum, LinuxNum, FirefoxNum], //資料
+									//圖表背景色
+									backgroundColor: [
+										'rgba(214, 243, 231, 1)',
+										'rgba(173, 251, 218, 1)',
+										'rgba(160, 220, 196, 1)',
+										'rgba(118, 208, 164, 1)'
+									],
+									hoverOffset: 4,
+								}]
+							},
+							options: {//圖表的一些其他設定，像是hover時外匡加粗
+								// 圖例
+								legend: {
+									display: false,
+								},
+							}
+						});
+
+						//顯示圓餅圖圖形資料↑↑---------------------------------
+					}
+				}
+				//1.作業系統↑↑------------------------------------------------
+
+				//2.Internet Explorer↓↓------------------------------------------------
+
+				//<<<<待處理...>>>>>
+
+				//2.Internet Explorer↑↑------------------------------------------------
+				/*
+					L_pie_system
+					L_pie_Google
+					L_pie_Firefox
+					L_pie_Edge
+					L_pie_Java
+					L_pie_AS
+					L_pie_Flash
+					L_pie_Adobe
+				*/
+
+				//左下角作業系統訊息end-↑↑--------------------------------
 			})
 
-	// //assets_今日回報數.json
-	// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
-	// 	.then(res => {
-	// 		console.log(res);
-	// 	})
 
-	// //assets_今日未回報數.json
-	// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
-	// 	.then(res => {
-	// 		console.log(res);
-	// 	})
+		//assets_今日回報數.json-↓↓------------------------------------
+		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			.then(res => {
+				const todayReturn = res.data.results.totalRow;
+				$('#todayReturn').html(todayReturn);
 
-	//gcb.json-------------------------------------------↓↓
-		/*
-					let agentPassStat;
-					let agentSoftInfo;
-					let agentAuditDateInfo;
-					let agentAuditInfo;
-					let agentTrustSiteInfo;
-					let agentScanInfo;
+			})
+		//assets_今日回報數.json-↑↑------------------------------------
 
-					axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
-						.then(res => {
-							agentPassStat = res.data.results.agentPassStat;
-							agentSoftInfo = res.data.results.agentSoftInfo;
-							acagentAuditDateInfo = res.data.results.agentAuditDateInfo;
-							agentAuditInfo = res.data.results.agentAuditInfo;
-							agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;
-							agentScanInfo = res.data.results.agentScanInfo;
+		//assets_今日未回報數.json-↓↓------------------------------------
+		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			.then(res => {
+				const todayUReturn = res.data.results.totalRow;
+				$('#todayUReturn').html(todayUReturn);
+			})
+		//assets_今日未回報數.json-↑↑------------------------------------
 
-							console.log(agentPassStat.total);
-						})
-		*/
-	//跳轉別頁
+		//assets_30天未回報數.json-↓↓------------------------------------
+		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+			.then(res => {
+				const ManeydayUReturn = res.data.results.totalRow;
+				$('#ManeydayUReturn').html(ManeydayUReturn);
+
+
+				//右邊線條圖表顯示start↓↓------------------------------------
+				const agents = res.data.results.agents;
+
+				let agentsCount = 0;
+				let detaStr = [];//未回報日期
+				let deteNum = [];//未回報數量
+				for(let i =0 ; i<agents.length ; i++){	
+					let agentsString = 	agents[i].createdAt.slice(0,10);
+					if(i==0){
+						detaStr.push(agentsString);
+						agentsCount=1;
+					}else if(agentsString==detaStr[detaStr.length-1]){
+						agentsCount++;
+					}else{
+						detaStr.push(agentsString);
+						deteNum.push(agentsCount);
+						agentsCount=1;
+					}									
+				}
+
+				console.log("agents.length="+agents.length);	
+				console.log("detaStr="+detaStr[detaStr.length-1]+" /deteNum="+deteNum[deteNum.length-1]);	
+				
+				var ctx = document.getElementById('R_line');
+				var myChart = new Chart(ctx, {
+					type: 'line', //圖表類型
+					data: {//設定圖表資料
+						//標題						
+						labels: detaStr,//labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+						datasets: [{
+							label: 'My First Dataset',
+							data: deteNum,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							fill: false,
+							borderColor: [
+								'rgb(238, 133, 116)',
+							],
+							tension: 0.1
+						},
+						
+						]
+					},
+					options: {//圖表的一些其他設定，像是hover時外匡加粗
+						// 圖例
+						legend: {
+							display: false,
+						},
+
+					},
+					
+				});
+
+				//右邊線條圖表顯示end↑↑------------------------------------
+			})
+
+		//assets_30天未回報數.json-↑↑------------------------------------
+
+
+
 
 
 	</script>
+
 
 </body>
 
