@@ -1,88 +1,44 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<title></title>
-
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="./js/Chart.min.js"></script>
-
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script> -->
-
-
-	<script>
-			//assets_30天未回報數.json
-			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
-			// 	.then(res => {
-			// 		console.log(res);
-			// 	})
-
-			// //assets_今日回報數.json
-			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
-			// 	.then(res => {
-			// 		console.log(res);
-			// 	})
-
-			// //assets_今日未回報數.json
-			// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
-			// 	.then(res => {
-			// 		console.log(res);
-			// 	})
-
-			
-			//跳轉別頁
-			//window.location.href = 'My_answer/assets.html';
-
-		</script>
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#selectBox").change(function(){
+        var selectedOption = $("#selectBox").val();
+        $(".card").hide();
+        $("#" + selectedOption).show();
+      });
+    });
+  </script>
 </head>
-
 <body>
 
-	<canvas id="R_line" width="400" height="400"></canvas>
+<div class="container mt-5">
+  <div class="form-group">
+    <select class="form-control" id="selectBox">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select>
+  </div>
 
-	<script type="text/javascript">
+  <div class="card" id="option1" style="display:block;">
+    <div class="card-body">
+      This is Option 1
+    </div>
+  </div>
 
-		//右邊線條圖↓↓----------------------------------------------------
-		var ctx = document.getElementById('R_line');
-		var myChart = new Chart(ctx, {
-			type: 'line', //圖表類型
-			data: {//設定圖表資料
-				//標題
-				labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
-				datasets: [{
-					label: 'My First Dataset',
-					data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
-					fill: false,
-					borderColor: [
-						'rgb(238, 133, 116)',
-					],
-					tension: 0.1
-				},
-				{
-					label: 'My First Dataset',
-					data: [62, 62, 62, 62, 62, 62, 62],
-					fill: false,
-					borderColor: [
-						'rgb(75, 192, 192)',
-					],
-					tension: 0.1
-				},
-			]
-			},
-			options: {//圖表的一些其他設定，像是hover時外匡加粗
-				// 圖例
-				legend: {
-					display: false,
-				},
-			}
-		});
-		//右邊線條圖↑↑----------------------------------------------------
-	</script>
+  <div class="card" id="option2" style="display:none;">
+    <div class="card-body">
+      This is Option 2
+    </div>
+  </div>
+</div>
 
 </body>
-
 </html>

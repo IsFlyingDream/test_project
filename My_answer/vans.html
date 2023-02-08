@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="./css/simple-line-icons.min.css" type="text/css">
+
+	<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+	<script src="./js/jquery-3.6.0.slim.min.js"></script>
+
+
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/Chart.min.js"></script>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row justify-content-center my-2">
+			<div class="col-2 m-1 row border  align-items-center">
+				<div class="col-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						style="color:#17a2b8;" class="bi bi-collection" viewBox="0 0 16 16">
+						<path
+							d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
+					</svg>
+				</div>
+				<div class="col-9">
+					<h4 class="text-info">2370</h4>
+					<p>資產總數</p>
+				</div>
+			</div>
+			<div class="col-2 m-1 row border border-2 align-items-center">
+				<div class="col-2 ">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						style="color:#28a745;" class="bi bi-check-circle" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+						<path
+							d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+					</svg>
+				</div>
+				<div class="col-9">
+					<h4 class="text-success">4</h4>
+					<p><small>今日回報數</small></p>
+				</div>
+			</div>
+			<div class="col-2 m-1 border border-2 row align-items-center">
+				<div class="col-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						style="color:#dc3545;" class="bi bi-x-circle " viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+						<path
+							d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+					</svg>
+				</div>
+				<div class="col-9">
+					<h4 class="text-danger">2366</h4>
+					<small>今日未回報數</small>
+				</div>
+			</div>
+			<div class="col-2 m-1 border border-2 row align-items-center ">
+				<div class="col-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						style="color:#6c757d;" class="bi bi-question-circle" viewBox="0 0 16 16">
+						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+						<path
+							d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+					</svg>
+				</div>
+				<div class="col-9">
+					<h4 class="text-secondary">2348</h4>
+					<p><small>30天未回報數</small></p>
+				</div>
+			</div>
+
+			<div class="col-2 m-1 border border-2 row align-items-center justify-content-center">
+				<div>
+					<div>
+						<p>部門
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-card-list" viewBox="0 0 16 16">
+								<path
+									d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+								<path
+									d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+							</svg>
+						</p>
+					</div>
+					<div>
+						<select class="form-select" aria-label="Default select example">
+							<option selected>全部</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+			<div class="col m-1 border border-2 row align-items-center">
+				<p>本部<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+						class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+						<path
+							d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+					</svg>
+				</p>
+				<button type="button" class="btn btn-secondary">選擇分站</button>
+			</div>
+		</div>
+		<div class="row  justify-content-center">
+			<div class="col ">
+				<div class="accordion" id="accordionExample">
+					<!-- First Accordion Item -->
+					<div class="card">
+						<p class="text-secondary">近30天風險數量趨勢圖</p>
+						<canvas id="L_line" width="400" height="400"></canvas>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-7 mb-2">
+				<div class="card">
+					<div class="container mt-2 ">
+						<div class="form-group ">
+							<select class="form-control" style="width: 150px;" id="selectAndShow">
+								<option value="option1">資產數量排名</option>
+								<option value="option2">CVE總數排名</option>
+							</select>
+						</div>
+
+						<div class=" optionCard  mb-2" id="option1" style="display:block;">
+							<canvas id="R_assets_bar" width="400" height="400"></canvas>
+						</div>
+
+						<div class=" optionCard mb-2" id="option2" style="display:none;">
+							<div class="card-body">
+								CVE總數排名
+							</div>
+							<canvas id="R_CVE_bar" width="400" height="400"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- API -->
+	<script>
+		//選擇CVE總數排名
+		$(document).ready(function () {
+			$("#selectAndShow").change(function () {
+				var selectedOption = $("#selectAndShow").val();
+				$(".optionCard").hide();
+				$("#" + selectedOption).show();
+			});
+		});
+
+
+		// //assets_今日回報數.json
+		// axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json')
+		// 	.then(res => {
+		// 		console.log(res);
+		// 	})
+
+
+
+		//vans.json
+		axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json')
+			.then(res => {
+				//左邊線條圖表顯示start↓↓------------------------------------
+				const risk_history = res.data.results.calc.risk_history;
+				let detaStr = [];//日期
+				let allNum = [];//總風險數量
+				let highNum = [];//高風險數量
+				let mediumNum = [];//中風險數量
+				let lowNum = [];//低風險數量
+
+				//console.log(Object.keys(risk_history)[0]);
+				//console.log(risk_history[Object.keys(risk_history)[0]].high);
+
+				//因為risk_history是物件，因此無法用for處理，要使用Object.keys()！
+				Object.keys(risk_history).map((dateData) => {
+					let high = risk_history[dateData].high;
+					let medium = risk_history[dateData].medium;
+					let low = risk_history[dateData].low;
+					let all = high + medium + low;
+
+					detaStr.push(dateData);
+					allNum.push(all);
+					highNum.push(high);
+					mediumNum.push(medium);
+					lowNum.push(low);
+				});
+
+				let ctx = document.getElementById('L_line');
+				let myChart = new Chart(ctx, {
+					type: 'line', //圖表類型
+					data: {//設定圖表資料
+						//標題						
+						labels: detaStr,//labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+						datasets: [{
+							label: '總高風險數',
+							data: allNum,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							fill: false,
+							borderColor: [
+								'rgb(66, 139, 202)',
+							],
+							tension: 0.4
+						}, {
+							label: '高風險',
+							data: highNum,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							fill: false,
+							borderColor: [
+								'rgb(255, 193, 7)',
+							],
+							tension: 0.4
+						}, {
+							label: '中風險',
+							data: mediumNum,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							fill: false,
+							borderColor: [
+								'rgb(238, 133, 116)',
+							],
+							tension: 0.4
+						}, {
+							label: '低風險',
+							data: lowNum,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							fill: false,
+							borderColor: [
+								'rgb(92, 184, 92)',
+							],
+							tension: 0.4
+						},
+						]
+					},
+					options: {//圖表的一些其他設定，像是hover時外匡加粗
+						// 圖例
+						legend: {
+							display: true,
+						},
+					},
+
+				});
+				//左邊線條圖表顯示end↑↑------------------------------------
+
+
+				//右邊線條圖表資產顯示start↓↓------------------------------------
+				const rank = res.data.results.calc.rank;
+				let assetsName = [];//資產型號
+				let assetsNumber = [];//資產數量
+
+				//console.log(rank[4].soft_name);
+				//console.log(risk_history[Object.keys(risk_history)[0]].high);
+				//console.log(rank[4].assets.length);
+
+				//抓取json放到array內
+				for (let i = 0; i < rank.length; i++) {
+					assetsName.push(rank[i].soft_name);
+					let count = 0;
+					for (let j = 0; j < rank[i].assets.length; j++) {
+						count++;
+					}
+					assetsNumber.push(count);
+				}
+				//console.log("assetsName="+assetsName.length+"/assetsNumber="+assetsNumber.length);
+				//排序資產數量
+				let len = assetsNumber.length;
+				for (let i = 0; i < len; i++) {
+					for (let j = 0; j < len - i - 1; j++) {
+						if (assetsNumber[j] < assetsNumber[j + 1]) {
+							let temp = assetsNumber[j];
+							assetsNumber[j] = assetsNumber[j + 1];
+							assetsNumber[j + 1] = temp;
+
+							let temp2 = assetsName[j];
+							assetsName[j] = assetsName[j + 1];
+							assetsName[j + 1] = temp2;
+						}
+					}
+				}
+				//console.log("assetsName="+assetsName);
+				//console.log("assetsNumber="+assetsNumber);
+				let ctx2 = document.getElementById('R_assets_bar');
+				let myChart2 = new Chart(ctx2, {
+					type: 'bar', //圖表類型
+					data: {//設定圖表資料
+						//標題						
+						labels: assetsName.slice(0, 10),//labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+						datasets: [{
+							label: '資產數',
+							data: assetsNumber.slice(0, 10),//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							//fill: false,
+							backgroundColor: [
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+								'rgb(66, 139, 202)',
+							],
+							borderWidth: 0
+							//tension: 0.4
+						},
+						]
+					},
+					options: {//圖表的一些其他設定，像是hover時外匡加粗
+						// 圖例
+
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						},
+					},
+				});
+				//右邊線條圖表資產顯示end↑↑------------------------------------
+
+				//右邊線條圖表CVE顯示start↓↓------------------------------------
+				//const rank = res.data.results.calc.rank;
+				let assetsName2 = [];//資產型號
+				//let assetsNumber = [];//資產數量
+				let CVE_highNumber = [];//高風險CVE
+				let CVE_mediumNumber = [];//中風險CVE
+				let CVE_lowNumber = [];//低風險CVE
+				let CVE_tatalNumber = [];//CVE總數
+
+				//console.log(rank[4].soft_name);
+				//console.log(risk_history[Object.keys(risk_history)[0]].high);
+				//console.log(rank[4].assets.length);
+
+				//抓取json放到array內
+				for (let i = 0; i < rank.length; i++) {
+					assetsName2.push(rank[i].soft_name);
+
+					CVE_highNumber.push(rank[i].cve_risk.high);
+					CVE_mediumNumber.push(rank[i].cve_risk.medium);
+					CVE_lowNumber.push(rank[i].cve_risk.low);
+					CVE_tatalNumber.push(rank[i].cve_risk.total);
+				}
+				//console.log("assetsName="+assetsName.length+"/assetsNumber="+assetsNumber.length);
+				//排序CVE數量
+				let len2 = CVE_tatalNumber.length;
+				for (let i = 0; i < len2; i++) {
+					for (let j = 0; j < len2 - i - 1; j++) {
+						if (CVE_tatalNumber[j] < CVE_tatalNumber[j + 1]) {
+							let temp = CVE_tatalNumber[j];
+							CVE_tatalNumber[j] = CVE_tatalNumber[j + 1];
+							CVE_tatalNumber[j + 1] = temp;
+
+							let temp2 = assetsName2[j];
+							assetsName2[j] = assetsName2[j + 1];
+							assetsName2[j + 1] = temp2;
+
+							let temp3 = CVE_highNumber[j];
+							CVE_highNumber[j] = CVE_highNumber[j + 1];
+							CVE_highNumber[j + 1] = temp3;
+
+							let temp4 = CVE_mediumNumber[j];
+							CVE_mediumNumber[j] = CVE_mediumNumber[j + 1];
+							CVE_mediumNumber[j + 1] = temp4;
+
+							let temp5 = CVE_lowNumber[j];
+							CVE_lowNumber[j] = CVE_lowNumber[j + 1];
+							CVE_lowNumber[j + 1] = temp5;
+						}
+					}
+				}
+				//console.log("assetsName="+assetsName);
+				//console.log("assetsNumber="+assetsNumber);
+
+				let ctx3 = document.getElementById('R_CVE_bar');
+				let myChart3 = new Chart(ctx3, {
+					type: 'bar', //圖表類型
+					data: {//設定圖表資料
+						//標題						
+						labels: assetsName2,//labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+						datasets: [{
+							label: '高風險CVE數',
+							data: CVE_highNumber,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							//fill: false,
+							backgroundColor: [
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+								'rgb(255, 99, 132)',
+							],
+							borderWidth: 0
+							//tension: 0.4
+						},{
+							label: '中風險CVE數',
+							data: CVE_mediumNumber,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							//fill: false,
+							backgroundColor: [
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+								'rgb(255, 205, 86)',
+							],
+							borderWidth: 0
+							//tension: 0.4
+						},{
+							label: '低風險CVE數',
+							data: CVE_lowNumber,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+							//fill: false,
+							backgroundColor: [
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+								'rgb(75, 192, 192)',
+							],
+							borderWidth: 0
+							//tension: 0.4
+						},
+						]
+					},
+					options: {//圖表的一些其他設定，像是hover時外匡加粗
+						// 圖例
+
+						scales: {
+							y: {
+								beginAtZero: true
+							}
+						},
+					},
+				});
+				//右邊線條圖表CVE顯示end↑↑------------------------------------
+			})
+
+
+
+
+	</script>
+
+</body>
+
+
+</html>
