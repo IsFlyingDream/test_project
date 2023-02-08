@@ -1,21 +1,49 @@
 
-▲資料夾『API_response』為貴方提供給我的資料，我放在HGithub上是為了能作為可以外連的API使用。
+▲資料夾『API_response』為貴公司提供給我的資料，我放在HGithub上是為了能作為可以外連的API使用。
 
-▲資料夾『My_answer』為我此次的作答答案。
+▲資料夾『My_answer』為我此次的作答答案
 
-▲資料夾『考試試題』則是貴方此次給我的內容。
+▲資料夾『考試試題』則是貴公司此次給我的內容。
 
-▲index.html
-
-
-==========1.串聯API==========
-檔案『Dashboard_gcb.html』
-是直接拿『參考資料_Dashboard.zip 』來改。
-，裡面的資料是抓：
-『https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json 』網址的。
+==========頁面完成品==========
+檔案『assets.html』、『vans.html』、『待輸入』
 
 
-==========2.頁面完成品==========
-檔案『assets.html』、
+★《assets.html》(對應：dashboard_assets.png)
+(僅處理按鈕『作業系統』、『Internet Explorer』、『Google Chrome』)
+已經串好API，API網址在下方。
+	
+★《vans.html》(對應：dashboard_vans.png、dashboard_vans2.png)
+(可選下拉選單切換圖表)
+已經串好API，API網址在下方。
 
-2.其他頁面是我從0開始，根據『頁面完成品截圖』慢慢完成的。
+★《gcb.html》(對應：dashboard_gcb.png)
+已經串好API，API網址在下方。
+
+《page_copy.html》
+並非繳交一環，僅是我複製然後處理其他分頁用的複製檔。
+
+
+《Dashboard_gcb.html》
+程式碼是貴公司的範例程式。
+是拿『參考資料_Dashboard.zip 』來改。
+已經串好API，API網址在下方。
+
+
+=============================
+
+
+assets_30天未回報數.json
+https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_30%E5%A4%A9%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json
+
+assets_今日回報數.json
+https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E5%9B%9E%E5%A0%B1%E6%95%B8.json
+
+assets_今日未回報數.json
+https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/assets_%E4%BB%8A%E6%97%A5%E6%9C%AA%E5%9B%9E%E5%A0%B1%E6%95%B8.json
+
+gcb.json
+https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json
+
+vans.json
+https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/vans.json
