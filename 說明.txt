@@ -6,7 +6,7 @@
 ▲資料夾『考試試題』則是貴公司此次給我的內容。
 
 ==========頁面完成品==========
-檔案『assets.html』、『vans.html』、『待輸入』
+檔案『assets.html』、『vans.html』、『gcb.html』
 
 
 ★《assets.html》(對應：dashboard_assets.png)
@@ -19,10 +19,6 @@
 
 ★《gcb.html》(對應：dashboard_gcb.png)
 已經串好API，API網址在下方。
-
-《page_copy.html》
-並非繳交一環，僅是我複製然後處理其他分頁用的複製檔。
-
 
 《Dashboard_gcb.html》
 程式碼是貴公司的範例程式。

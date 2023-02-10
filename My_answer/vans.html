@@ -6,11 +6,11 @@
 	<title></title>
 	<link rel="stylesheet" href="./css/simple-line-icons.min.css" type="text/css">
 
-	<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="./css/bootstrap5.min.css" type="text/css">
 	<script src="./js/jquery-3.6.0.slim.min.js"></script>
 
 
-	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/bootstrap5.min.js"></script>
 	<script src="./js/Chart.min.js"></script>
 
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -19,99 +19,132 @@
 
 <body>
 	<div class="container">
-		<div class="row justify-content-center my-2">
-			<div class="col-2 m-1 row border  align-items-center">
-				<div class="col-2">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-						style="color:#17a2b8;" class="bi bi-collection" viewBox="0 0 16 16">
-						<path
-							d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
-					</svg>
-				</div>
-				<div class="col-9">
-					<h4 class="text-info">2370</h4>
-					<p>資產總數</p>
-				</div>
-			</div>
-			<div class="col-2 m-1 row border border-2 align-items-center">
-				<div class="col-2 ">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-						style="color:#28a745;" class="bi bi-check-circle" viewBox="0 0 16 16">
-						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-						<path
-							d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-					</svg>
-				</div>
-				<div class="col-9">
-					<h4 class="text-success">4</h4>
-					<p><small>今日回報數</small></p>
-				</div>
-			</div>
-			<div class="col-2 m-1 border border-2 row align-items-center">
-				<div class="col-2">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-						style="color:#dc3545;" class="bi bi-x-circle " viewBox="0 0 16 16">
-						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-						<path
-							d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-					</svg>
-				</div>
-				<div class="col-9">
-					<h4 class="text-danger">2366</h4>
-					<small>今日未回報數</small>
-				</div>
-			</div>
-			<div class="col-2 m-1 border border-2 row align-items-center ">
-				<div class="col-2">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-						style="color:#6c757d;" class="bi bi-question-circle" viewBox="0 0 16 16">
-						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-						<path
-							d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-					</svg>
-				</div>
-				<div class="col-9">
-					<h4 class="text-secondary">2348</h4>
-					<p><small>30天未回報數</small></p>
-				</div>
-			</div>
-
-			<div class="col-2 m-1 border border-2 row align-items-center justify-content-center">
-				<div>
-					<div>
-						<p>部門
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-								class="bi bi-card-list" viewBox="0 0 16 16">
-								<path
-									d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-								<path
-									d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-							</svg>
-						</p>
-					</div>
-					<div>
-						<select class="form-select" aria-label="Default select example">
-							<option selected>全部</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
+		<div class="row g-2  mt-1">
+			<div class="col-6 col-md-3 col-xl-2 "><!--資產總數-->
+				<div class="border   ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center" id="one">
+							<div class=" col-3 ">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#17a2b8;" class="bi bi-collection" viewBox="0 0 16 16">
+									<path
+										d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-info mb-0 mt-2">2370</h4>
+								<p><small>資產總數</small></p>
+							</div>
+						</div>
 					</div>
 				</div>
-
 			</div>
-			<div class="col-1 m-1 border border-2 row align-items-center">
-				<p>本部<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
-						class="bi bi-question-circle-fill" viewBox="0 0 16 16">
-						<path
-							d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
-					</svg>
-				</p>
-				<button type="button" class="btn btn-secondary mb-1">選擇分站</button>
+			<div class="col-6 col-md-3 col-xl-2"><!--今日回報數-->
+				<div class=" border">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#28a745;" class="bi bi-check-circle" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-success mb-0 mt-2">4</h4>
+								<p><small>今日回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-3 col-xl-2"><!--今日未回報數-->
+				<div class=" border ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#dc3545;" class="bi bi-x-circle " viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-danger mb-0 mt-2">2366</h4>
+								<p><small>今日未回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-3 col-xl-2"><!--30天未回報數-->
+				<div class="border ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#6c757d;" class="bi bi-question-circle" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-secondary  mb-0 mt-2">2348</h4>
+								<p><small>30天未回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-6 col-xl align-items-center "><!--部門-->
+				<div class="border  h-100">
+					<div class=" row  justify-content-center">
+						<div class="col-12 justify-content-center">
+							<div style="text-align: center;">部門
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-card-list" viewBox="0 0 16 16">
+									<path
+										d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+									<path
+										d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+								</svg>
+							</div>
+						</div>
+						<div class="col-10">
+							<select class="mb-1 form-select" aria-label="Default select example">
+								<option selected>全部</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-6 col-xl align-items-center "><!--本部-->
+				<div class="border  h-100">
+					<div class=" row justify-content-center">
+						<div class="col-12 justify-content-center">
+							<div style="text-align: center;">本部
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+									class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+								</svg>
+							</div>
+						</div>
+						<div style="text-align: center;">
+							<button type="button" class="btn btn-secondary mb-1">選擇分站</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="row  justify-content-center">
-			<div class="col ">
+		<div class="my-1 row  justify-content-center g-2">
+			<div class="col-12 col-md-6 ">
 				<div class="accordion" id="accordionExample">
 					<!-- First Accordion Item -->
 					<div class="card">
@@ -120,8 +153,7 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="col-7 mb-2">
+			<div class="col-12 col-md-6">
 				<div class="card">
 					<div class="container mt-2 ">
 						<div class="form-group ">
@@ -137,7 +169,7 @@
 
 						<div class=" optionCard mb-2" id="option2" style="display:none;">
 							<div class="card-body">
-								CVE總數排名
+								<!-- CVE總數排名 -->
 							</div>
 							<canvas id="R_CVE_bar" width="400" height="400"></canvas>
 						</div>
@@ -412,7 +444,7 @@
 							],
 							borderWidth: 0
 							//tension: 0.4
-						},{
+						}, {
 							label: '中風險CVE數',
 							data: CVE_mediumNumber,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
 							//fill: false,
@@ -440,7 +472,7 @@
 							],
 							borderWidth: 0
 							//tension: 0.4
-						},{
+						}, {
 							label: '低風險CVE數',
 							data: CVE_lowNumber,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
 							//fill: false,
