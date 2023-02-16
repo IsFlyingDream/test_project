@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="./css/simple-line-icons.min.css" type="text/css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="./css/bootstrap5.min.css" type="text/css">
+	<script src="./js/jquery-3.6.0.slim.min.js"></script>
+	<script src="./js/bootstrap5.min.js"></script>
+	<script src="./js/Chart.min.js"></script>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+	<div class="container" id="app">
+		<div class="row g-2  mt-1">
+			<div class="col-6 col-md-3 col-xl-2 "><!--資產總數-->
+				<div class="border   ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center" id="one">
+							<div class=" col-3 ">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#17a2b8;" class="bi bi-collection" viewBox="0 0 16 16">
+									<path
+										d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-info mb-0 mt-2">{{agentPassStat_total}}</h4>
+								<p><small>資產總數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-3 col-xl-2"><!--今日回報數-->
+				<div class=" border">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#28a745;" class="bi bi-check-circle" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-success mb-0 mt-2">{{agentPassStat_passed}}</h4>
+								<p><small>今日回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-3 col-xl-2"><!--今日未回報數-->
+				<div class=" border ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#dc3545;" class="bi bi-x-circle " viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-danger mb-0 mt-2">{{agentPassStat_failed}}</h4>
+								<p><small>今日未回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-3 col-xl-2"><!--30天未回報數-->
+				<div class="border ">
+					<div class="d-flex justify-content-center ">
+						<div class="row align-items-center">
+							<div class="col-3">
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+									style="color:#6c757d;" class="bi bi-question-circle" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+									<path
+										d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+								</svg>
+							</div>
+							<div class="col-9">
+								<h4 class="text-secondary  mb-0 mt-2">{{agentPassStat_other}}</h4>
+								<p><small>30天未回報數</small></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-6 col-xl align-items-center "><!--部門-->
+				<div class="border  h-100">
+					<div class=" row  justify-content-center">
+						<div class="col-12 justify-content-center">
+							<div style="text-align: center;">部門
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-card-list" viewBox="0 0 16 16">
+									<path
+										d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+									<path
+										d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+								</svg>
+							</div>
+						</div>
+						<div class="col-10">
+							<select class="mb-1 form-select" aria-label="Default select example">
+								<option selected>全部</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-md-6 col-xl align-items-center "><!--本部-->
+				<div class="border  h-100">
+					<div class=" row justify-content-center">
+						<div class="col-12 justify-content-center">
+							<div style="text-align: center;">本部
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+									class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z" />
+								</svg>
+							</div>
+						</div>
+						<div style="text-align: center;">
+							<button type="button" class="btn btn-secondary mb-1">選擇分站</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="my-1 row  justify-content-center g-2"><!--下方內容-->
+			<div class="col-12 col-lg-6">
+				<div class="row  g-2">
+					<div class="col-12 col-md-6 "><!--近期稽核情形 (稽核資產數)-->
+						<div class="card">
+							<div class="card-header" id="panelsStayOpen-headingOne">
+								<svg xmlns="http://www.w3.org/2000/svg" style="float: right;" width="16" height="16"
+									fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true"
+									aria-controls="panelsStayOpen-collapseOne">
+									<path fill-rule="evenodd"
+										d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+								</svg>
+
+								<div style="display: inline-block;" class="ml-1"><small>
+										<svg xmlns="http://www.w3.org/2000/svg" class="mt-1" style="float: left;"
+											width="16" height="16" fill="currentColor" class="bi bi-border-width"
+											viewBox="0 0 16 16">
+											<path
+												d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+										</svg>
+										近期稽核情形 (稽核資產數)</small>
+								</div>
+							</div>
+
+							<div id="collapse1" class="collapse show" aria-labelledby="headingOne">
+								<div class="tabbable" id="tabs-516582">
+									<!-- 摺疊選項 1 -->
+									<div class=" card-body accordion row">
+										<div class="col-8">
+											<canvas id="R_assets_bar" width="179px" height="179px"></canvas>
+										</div>
+										<div class="col-4" id="R_assets_date">
+											<!-- <div>
+											<h5>100</h5>
+											<p>最近0日</p>
+										</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-12 col-md-6 "><!--資產符合率-->
+						<div class="card ">
+							<div class="card-header" id="panelsStayOpen-headingOne">
+								<svg xmlns="http://www.w3.org/2000/svg" style="float: right;" width="16" height="16"
+									fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true"
+									aria-controls="panelsStayOpen-collapseOne">
+									<path fill-rule="evenodd"
+										d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" class="mt-1" style="float: left;" width="16"
+									height="16" fill="currentColor" class="bi bi-border-width" viewBox="0 0 16 16">
+									<path
+										d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+								</svg>
+								<div style="display: inline-block;" class="ml-1"><small>資產符合率</small>
+								</div>
+							</div>
+
+							<div id="collapse2" class="collapse show " aria-labelledby="headingTwo">
+								<div class="tabbable" id="tabs-516583">
+									<!-- 摺疊選項 1 -->
+									<div class=" card-body accordion row">
+										<div class="col-7">
+											<canvas id="RL_assets_doughnut" width="179px" height="179px"></canvas>
+										</div>
+										<div class="col-5" id="RL_assets_date">
+											<!-- <div>
+											<h5>100</h5>
+											<p>最近0日</p>
+										</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12"><!--信任網站列表-->
+						<div class="card">
+
+							<div class="card-header">
+								<svg xmlns="http://www.w3.org/2000/svg" style="float: right;" width="16" height="16"
+									fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true"
+									aria-controls="panelsStayOpen-collapseOne">
+									<path fill-rule="evenodd"
+										d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+								</svg>
+
+								<svg xmlns="http://www.w3.org/2000/svg" class="mt-1" style="float: left;" width="16"
+									height="16" fill="currentColor" class="bi bi-border-width" viewBox="0 0 16 16">
+									<path
+										d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+								</svg>
+								<div style="display: inline-block;" class="ml-1"> <small>信任網站列表</small>
+								</div>
+							</div>
+
+							<div id="collapse3" class="collapse show" aria-labelledby="headingThree">
+								<div class="tabbable" id="tabs-516582">
+									<!-- 摺疊選項 1 -->
+									<div class=" accordion-body accordion" id="trust_site"
+										style="height:505px; overflow-y: auto; display: block; "><!--height:250px;--->
+										<div class="row">
+											<div class="col-8">網址</div>
+											<div class="col-4">使用數量</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+			<div class="col-12 col-lg-6"><!--稽核項目分類統計<-->
+				<div class="accordion">
+					<div class="accordion-item">
+						<div class="card-header" id="panelsStayOpen-headingOne">
+							<svg xmlns="http://www.w3.org/2000/svg" style="float: right;" width="16" height="16"
+								fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16" type="button"
+								data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne"
+								aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+								<path fill-rule="evenodd"
+									d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" class="mt-1" style="float: left;" width="16"
+								height="16" fill="currentColor" class="bi bi-border-width" viewBox="0 0 16 16">
+								<path
+									d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+							</svg>
+							<div style="display: inline-block;" class="ml-1"><small>稽核項目分類統計</small>
+							</div>
+						</div>
+						<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+							aria-labelledby="panelsStayOpen-headingOne">
+							<div class="accordion-body" style="height:945px; overflow-y: auto; display: block; ">
+								<div id="agentAuditInfo_id">
+									<div class="row">
+										<div class="col-5"><small>分類/圖示</small></div>
+										<div class="col"><small>符合率</small></div>
+										<div class="col"><small>未符合率</small></div>
+										<div class="col"><small>未設定率</small></div>
+										<div class="col"><small>排除率</small></div>
+									</div>
+									<!-- <div class="row">
+										<div class="col-5">
+											<div><strong>Internet Explorer</strong></div>
+											<div class="progress">
+												<div class="progress-bar bg-success" style="width:10%;">1</div>
+												<div class="progress-bar bg-warning" style="width:40%;">2</div>
+												<div class="progress-bar  bg-danger" style="width:25%;">3</div>
+												<div class="progress-bar bg-info" style="width:25%; ">4</div>
+											</div>
+										</div>
+										<div class="col">
+											<div class="row">
+												<div class="col-3 mt-3">00.0%</div>
+												<div class="col-3 mt-3">00.0%</div>
+												<div class="col-3 mt-3">00.0%</div>
+												<div class="col-3 mt-3">00.0%</div>
+											</div>
+										</div>
+									</div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- API -->
+		<script>
+			// Vue Start↓↓------------------------------------
+		const { createApp, onBeforeMount } = Vue;
+		createApp({
+			data() {
+				return {
+					agentPassStat_total: 0,//(上方標題)資產總數
+					agentPassStat_passed: 0,//(上方標題)今日回報數
+					agentPassStat_failed: 0,//(上方標題)今日未回報數
+					agentPassStat_other: 0,//(上方標題)30天未回報數					
+				}
+			},
+			methods: {
+				fetchData() {
+					axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
+						.then(response => {
+							this.agentPassStat_total = response.data.results.agentPassStat.total;
+							this.agentPassStat_passed = response.data.results.agentPassStat.passed;
+							this.agentPassStat_failed = response.data.results.agentPassStat.failed;
+							this.agentPassStat_other = response.data.results.agentPassStat.other;
+						})
+						.catch(error => {
+							console.log(error)
+						});					
+				}
+			},
+			mounted() {
+				this.fetchData();
+			}
+		}).mount('#app');
+
+		// Vue End↑↑------------------------------------
+
+
+
+			//assets_30天未回報數.json
+			axios.get('https://cdn.jsdelivr.net/gh/IsFlyingDream/test_project/API_response/gcb.json')
+				.then(res => {
+
+					//左上近期稽核顯示start↓↓------------------------------------
+					const agentScanInfo = res.data.results.agentScanInfo;//近期稽核情形
+
+					let agentScanInfo_dataAry = [];//日期
+					let agentScanInfo_numAry = [];//數量
+
+					//console.log(Object.keys(agentScanInfo)[0]);
+					//console.log(agentScanInfo[Object.keys(agentScanInfo)[0]]);
+
+					//抓取json放到array內
+					Object.keys(agentScanInfo).map((dateData) => {
+						agentScanInfo_dataAry.push(dateData);
+						agentScanInfo_numAry.push(agentScanInfo[dateData]);
+						$('#R_assets_date').append(`<div><h5>${agentScanInfo[dateData]}</h5><p><small>最近${dateData}日</small></p></div>`)
+					});
+
+					//console.log("agentScanInfo_dataAry=" + agentScanInfo_dataAry);
+					//console.log("agentScanInfo_numAry=" + agentScanInfo_numAry);
+
+					let ctx = document.getElementById('R_assets_bar');
+					let myChart = new Chart(ctx, {
+						type: 'bar', //圖表類型
+						data: {//設定圖表資料
+							//標題						
+							labels: agentScanInfo_dataAry,//labels: ['日期1', '日期2', '日期3', '日期4', '日期5', '日期6'],
+							datasets: [{
+								label: '稽核資產數',
+								data: agentScanInfo_numAry,//data: [2540, 2540, 2540, 2540, 2540, 2540, 2540],
+								//fill: false,
+								backgroundColor: [
+									'rgb(66, 139, 202)',
+									'rgb(66, 139, 202)',
+									'rgb(66, 139, 202)',
+									'rgb(66, 139, 202)',
+									'rgb(66, 139, 202)',
+								],
+								borderWidth: 1,
+								//tension: 0.4
+							},
+							]
+						},
+						options: {//圖表的一些其他設定，像是hover時外匡加粗
+							// 圖例
+							scales: {
+								y: {
+									beginAtZero: true,
+								}
+							},
+						},
+					});
+					//左上近期稽核顯示end↑↑------------------------------------
+
+					//左上右資產合規率start↓↓------------------------------------
+					const ratio = res.data.results.agentPassStat.ratio;//資產合規率
+
+					let agentPassStat_NUM = [];//比例
+
+
+					agentPassStat_NUM.push(ratio.passed);
+					agentPassStat_NUM.push(ratio.failed);
+					agentPassStat_NUM.push(ratio.other);
+
+					let passed = (ratio.passed * 100).toFixed(2) + "%";
+					let failed = (ratio.failed * 100).toFixed(2) + "%";
+					let other = (ratio.other * 100).toFixed(2) + "%";
+
+					$('#RL_assets_date').append(`<div><h5>${passed}</h5><p><small>符合</small></p></div>`);
+					$('#RL_assets_date').append(`<div><h5>${failed}</h5><p><small>未符合</small></p></div>`);
+					$('#RL_assets_date').append(`<div><h5>${other}</h5><p><small>未稽核</small></p></div>`);
+					//console.log(Object.keys(agentScanInfo)[0]);
+					//console.log(agentScanInfo[Object.keys(agentScanInfo)[0]]);
+
+					//顯示圓餅圖圖形資料↓↓---------------------------------
+					/*色票
+						'rgba(214, 243, 231, 1)',
+						'rgba(173, 251, 218, 1)',
+						'rgba(173, 236, 204, 1)',
+						'rgba(160, 220, 196, 1)',
+						'rgba(118, 208, 164, 1)'
+					*/
+					let ctx2 = document.getElementById('RL_assets_doughnut');
+					let myChart2 = new Chart(ctx2, {
+						type: 'doughnut', //圖表類型
+						data: {//設定圖表資料
+							//標題
+							labels: ['符合', '未符合', '未稽核'],
+							datasets: [{
+								label: '資產符合率', //標籤
+								data: agentPassStat_NUM, //資料
+								//圖表背景色
+								backgroundColor: [
+									'rgba(32, 168, 216, 1)',
+									'rgba(248, 108, 107, 1)',
+									'rgba(77, 189, 116, 1)',
+								],
+								hoverOffset: 4,
+							}]
+						},
+						options: {//圖表的一些其他設定，像是hover時外匡加粗
+							// 圖例
+							legend: {
+								display: false,
+							},
+						}
+					});
+					//顯示圓餅圖圖形資料↑↑---------------------------------
+					//左上右資產合規率end↑↑------------------------------------
+
+					//左下『信任網站列表』顯示start↓↓------------------------------------
+					const agentTrustSiteInfo = res.data.results.agentTrustSiteInfo;//信任網站
+
+					//抓取json放到顯示內				
+
+					for (let i = 0; i < agentTrustSiteInfo.length; i++) {
+						let str = `<div class="row"><div class="col-8">${agentTrustSiteInfo[i].siteName}</div><div class="col-4">${agentTrustSiteInfo[i].userCount}</div></div>`;
+						$('#trust_site').append(str);
+					}
+
+					//左下『信任網站列表』顯示end↑↑------------------------------------
+
+					//右『稽核項目分類統計』顯示start↓↓------------------------------------
+					const agentAuditInfo = res.data.results.agentAuditInfo;//稽核項目統計
+
+
+					//因為risk_history是物件，因此無法用for處理，要使用Object.keys()！
+
+					Object.keys(agentAuditInfo).map((dateData) => {
+						let sum = agentAuditInfo[dateData][0] + agentAuditInfo[dateData][1] + agentAuditInfo[dateData][2] + agentAuditInfo[dateData][3];
+						let matchStr = (agentAuditInfo[dateData][0] / sum * 100).toFixed(1) + "%";//符合率
+						let notMatchStr = (agentAuditInfo[dateData][1] / sum * 100).toFixed(1) + "%";//未符合率
+						let notSetStr = (agentAuditInfo[dateData][2] / sum * 100).toFixed(1) + "%";//未設定率
+						let expectStr = (agentAuditInfo[dateData][3] / sum * 100).toFixed(1) + "%";//排除率
+						//let passed = (ratio.passed * 100).toFixed(2) + "%";
+
+						let match_num = (agentAuditInfo[dateData][0] / sum * 100).toFixed(0) + "%";//符合率
+						let notMatch_num = (agentAuditInfo[dateData][1] / sum * 100).toFixed(0) + "%";//未符合率
+						let notSet_num = (agentAuditInfo[dateData][2] / sum * 100).toFixed(0) + "%";//未設定率
+						let expect_num = (agentAuditInfo[dateData][3] / sum * 100).toFixed(0) + "%";//排除率
+						let agentAuditInfo_code = `
+						<div class="row">
+							<div class="col-5">
+								<div class="ml-1"><strong>${dateData}</strong></div>
+								<div class="progress">
+									<div style="width:${match_num}; " class="progress-bar bg-success" ><small>${matchStr}</small></div>
+									<div style="width:${notMatch_num}; " class="progress-bar bg-warning"><small>${notMatchStr}</small></div>
+									<div style="width:${notSet_num};" class="progress-bar  bg-danger"><small>${notSetStr}</small></div>
+									<div style="width:${expect_num};" class="progress-bar bg-info"><small>${expectStr}</small></div>
+								</div>
+							</div>
+							<div class="col">
+							<div class="row">
+								<div class="col-3 mt-3">${matchStr}</div>
+								<div class="col-3 mt-3">${notMatchStr}</div>
+								<div class="col-3 mt-3">${notSetStr}</div>
+								<div class="col-3 mt-3">${expectStr}</div>
+							</div>`;
+						$('#agentAuditInfo_id').append(agentAuditInfo_code);
+					});
+
+					/*
+					<div class="row">
+						<div class="col-5">
+							<div><strong>Internet Explorer</strong></div>
+							<div class="progress">
+								<div class="progress-bar bg-success" style="width:10%;">1</div>
+								<div class="progress-bar bg-warning" style="width:40%;">2</div>
+								<div class="progress-bar  bg-danger" style="width:25%;">3</div>
+								<div class="progress-bar bg-info" style="width:25%; ">4</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="row">
+								<div class="col-3 mt-3">00.0%</div>
+								<div class="col-3 mt-3">00.0%</div>
+								<div class="col-3 mt-3">00.0%</div>
+								<div class="col-3 mt-3">00.0%</div>
+							</div>
+						</div>
+					</div> 
+					*/
+					//右『稽核項目分類統計』顯示end↑↑------------------------------------
+
+				})
+
+		</script>
+
+</body>
+
+
+</html>
